@@ -5,7 +5,7 @@ function Header() {
     return(
         <header className="header">
             <nav className="navbar">
-                <img src="./src/assets/logo-white.svg" alt="" className="nav--logo"/>
+                <img src="./src/assets/logo-white.svg" alt="logo" className="nav--logo"/>
                 <ul className="nav--menu">
                     <li className="nav--item">
                         <Link to='/'>Home</Link>

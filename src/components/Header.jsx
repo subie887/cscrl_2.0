@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg"
 
 function Header() {
     return(
         <header className="header">
             <nav className="navbar">
-                <img src="./src/assets/cscrl-logo.svg" alt="logo" className="nav--logo"/>
+                <img src={logo} alt="logo" className="nav--logo"/>
                 <ul className="nav--menu">
                     <li className="nav--item">
                         <Link to='/'>Home</Link>
@@ -22,7 +23,7 @@ function Header() {
                 </ul>
             </nav>
             <div className="account--menu">
-                <img src="./src/assets/default.svg" alt="profile-picture" />
+                <img src="default.svg" alt="profile-picture" />
             </div>
         </header>
     )

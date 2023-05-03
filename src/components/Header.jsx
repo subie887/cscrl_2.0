@@ -5,7 +5,7 @@ function Header() {
     return(
         <header className="header">
             <nav className="navbar">
-                <img src="src/assets/cscrl-logo.svg" alt="logo" className="nav--logo"/>
+                <img src="./src/assets/cscrl-logo.svg" alt="logo" className="nav--logo"/>
                 <ul className="nav--menu">
                     <li className="nav--item">
                         <Link to='/'>Home</Link>
@@ -22,7 +22,7 @@ function Header() {
                 </ul>
             </nav>
             <div className="account--menu">
-                <img src="../assets/default-919349a7.svg" alt="profile-picture" />
+                <img src="./src/assets/default.svg" alt="profile-picture" />
             </div>
         </header>
     )

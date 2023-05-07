@@ -7,7 +7,9 @@ function Header() {
     return(
         <header className="header">
             <nav className="navbar">
-                <img src={logo} alt="logo" className="nav--logo"/>
+                <Link to='/'>
+                    <img src={logo} alt="logo" className="nav--logo"/>
+                </Link>
                 <ul className="nav--menu">
                     <li className="nav--item">
                         <Link to='/'>Home</Link>

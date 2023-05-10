@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;600&display=swap');
+
 :root {
-  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,6 +13,7 @@
   color: rgba(0, 0, 0, 0.87);
   background-color: #ffffff;
   justify-content: center;
+  align-content: center;
 }
 
 header {
@@ -120,4 +123,61 @@ header {
   color: #000000;
   position: relative;
   font-weight: 600;
+}
+
+.person-card--container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.person-card--info {
+  width: 360px;
+  height: 500px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 2.5rem;
+
+  text-align: center;
+  line-height: 100%;
+}
+
+.person-card--research {
+  width: 755px;
+  height: 500px;
+
+  background: #FFFFFF;
+  box-shadow: -1px 6px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 2.5rem;
+}
+
+.person-card--img {
+  border-radius: 15px;
+}
+
+.person-card--name {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.person-card--role {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.person-card--bio {
+  overflow: scroll;
+  height: 30%;
+}
+
+.person-card--links {
+  list-style-type: none;
+  padding: 0;
+  height: 50%;
+  overflow: scroll;
 }

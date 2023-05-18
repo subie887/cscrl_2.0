@@ -25,9 +25,6 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <div className="account--menu">
-                <img src={profileimg} alt="profile-picture" />
-            </div>
         </header>
     )
 }

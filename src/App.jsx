@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
 import Header from './components/Header'
@@ -9,6 +7,7 @@ import Conferences from './pages/Conferences'
 import Research from './pages/Research'
 import Calendar from './pages/Calendar'
 import Contacts from './pages/Contancts'
+import SignUp from './pages/SignUp'
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
         <Route path='/research' element={<Research />} />
         <Route path='/calendar' element={<Calendar />} />
         <Route path='/contacts' element={<Contacts />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   )

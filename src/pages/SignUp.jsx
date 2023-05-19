@@ -1,6 +1,7 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
 import response from "../../temp_db/associates";
+import backgroundImage from "../assets/auth-background.jpg"
 
 function SignUp() {
     const [formData, setFormData] = React.useState({
@@ -27,7 +28,7 @@ function SignUp() {
         <main>
             <div className="auth-form--container">
                 <h2 className="auth-form--title">sign up</h2>
-                <form className="auth-form" action="">
+                <form className="auth-form--signup" action="">
                     <input className="auth-form--input"
                         onChange={handleChange}
                         value={formData.fname}

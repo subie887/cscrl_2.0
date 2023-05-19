@@ -8,18 +8,24 @@ import Research from './pages/Research'
 import Calendar from './pages/Calendar'
 import Contacts from './pages/Contancts'
 import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
+import Layout from './components/Layout'
 
 function App() {
   return (
     <BrowserRouter>
-    <Header />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/conferences' element={<Conferences />} />
-        <Route path='/research' element={<Research />} />
-        <Route path='/calendar' element={<Calendar />} />
-        <Route path='/contacts' element={<Contacts />} />
+        {/* Auth Routes */}
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/signin' element={<SignIn />} />
+        {/* Main Website */}
+        <Route element={<Layout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/conferences' element={<Conferences />} />
+          <Route path='/research' element={<Research />} />
+          <Route path='/calendar' element={<Calendar />} />
+          <Route path='/contacts' element={<Contacts />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

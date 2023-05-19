@@ -206,6 +206,18 @@ header {
   background-color: lightgray;
 }
 
+.auth-form--signup{
+  display: grid;
+  grid-template: 40px 40px 40px 40px / 1fr 1fr;
+  gap: 15px;
+}
+
+.auth-form--signin{
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 15px;
+}
+
 .auth-form--container {
   background-color: #4B2913;
   padding: 2rem 5rem;
@@ -221,13 +233,13 @@ header {
   font-size: 36px;
   font-weight: 700;
   color: white;
+  margin: 1rem auto;
 }
 
 .auth-form--input, .auth-form--button{
   display: block;
   padding: 0.75rem;
   border-radius: 10px;
-  margin: 1rem auto;
   background-color: #503b2d;
   border-color: #2f1809;
   text-align: center;
@@ -238,10 +250,10 @@ header {
 }
 
 .auth-form--button {
+  grid-column: 1 / -1;
   background-color: #FFD94A;
   border-color: #ba9307;
   color: #000000;
   width: 100%;
-  margin-top: 3rem;
 }
 

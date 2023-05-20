@@ -1,41 +1,36 @@
 import React from "react";
 import VideoCard from "../components/VideoCard";
+import axios from "axios";
+import UploadForm from "../components/UploadForm";
 
 function Conferences() {
-    const [conferences, setConferences] = React.useState([
-        {
-            source: null,
-            title: "Conference 1",
-            event: "Spring Symposium 2023",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis odio illum ullam deserunt, suscipit numquam porro? Quibusdam quam similique modi."
-        },
-        {
-            source: null,
-            title: "Conference 2",
-            event: "Spring Symposium 2023",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis odio illum ullam deserunt, suscipit numquam porro? Quibusdam quam similique modi."
-        },
-        {
-            source: null,
-            title: "Conference 3",
-            event: "Spring Symposium 2023",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis odio illum ullam deserunt, suscipit numquam porro? Quibusdam quam similique modi."
-        }
-    ])
+    const [videos, setVideos] = React.useState([])
 
-    const conferencesCards = conferences.map(conference => (
+    React.useEffect(() => {
+        async function getVideos() {
+            const result = await axios.get("http://localhost:3000/api/posts")
+            setVideos(result.data)
+        }
+        getVideos()
+    }, [])
+
+    console.log(videos)
+    
+    
+    const videoCards = videos.map(video => (
         <VideoCard 
-            key={conference.title}
-            title={conference.title}
-            event={conference.event}
-            description={conference.description}
+            key={video.id}
+            title={video.title}
+            eventName={video.eventName}
+            description={video.desc}
         />
     ))
 
     return (
         <main>
             <h1>Conferences page</h1>
-            {conferencesCards}
+            <UploadForm />
+            {videoCards}
 
         </main>
     )

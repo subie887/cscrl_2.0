@@ -200,7 +200,7 @@ header {
   padding: 2.5rem;
 }
 
-.video-card > div {
+.video-card--player {
   width: 100%;
   height: 360px;
   background-color: lightgray;
@@ -242,8 +242,6 @@ header {
   border-radius: 10px;
   background-color: #503b2d;
   text-align: center;
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
   border: 2px solid #2f1809;
 }
 

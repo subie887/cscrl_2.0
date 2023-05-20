@@ -74,10 +74,7 @@ function SignUp() {
                     />
                     <button className="auth-form--button" onClick={handleSubmit}>Sign Up</button>
                 </form>
-            </div>
-
-            <UploadForm />
-            
+            </div>            
         </main>
     )
 }

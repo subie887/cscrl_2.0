@@ -2,7 +2,8 @@ import express from 'express';
 import multer from 'multer';
 import { PrismaClient } from '@prisma/client';
 import cors from 'cors';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import dotenv from 'dotenv';
 import crypto from 'crypto';
 
@@ -14,6 +15,7 @@ const bucketName = process.env.BUCKET_NAME
 const bucketRegion = process.env.BUCKET_REGION
 const accessKey = process.env.ACCESS_KEY
 const secretAccessKey = process.env.SECRET_ACCESS_KEY
+const cloudfrontUrl = process.env.CLOUDFRONT_URL
 
 const s3 = new S3Client({
     credentials: {
@@ -42,9 +44,14 @@ var port = process.env.PORT || 3000;
 
 
 app.get("/api/posts", async (req, res) => {
-    const posts = await prisma.posts.findMany({orderBy: [{ title: 'desc'}]})
+    const posts = await prisma.videos.findMany({orderBy: [{ title: 'desc'}]})
+
+    for (const post of posts) {
+        post.videoUrl = `${cloudfrontUrl}/${post.fileName}`;
+    }
+
     res.send(posts)
-  })
+})
 
 app.post("/api/posts", upload.single('file'), async (req, res) => {
     /* 
@@ -89,7 +96,23 @@ app.post("/api/posts", upload.single('file'), async (req, res) => {
 
 app.delete("/api/posts/:id", async (req, res) => {
     const id = +req.params.id
-    res.send({})
+    const post = prisma.videos.findUnique({where: {id}}) 
+    if (!post) {
+        res.status(404).send("Not found")
+        return
+    }
+
+    const params = {
+        Bucket: bucketName,
+        Key: post.title
+    }
+
+    const command = new DeleteObjectCommand(params)
+    await s3.send(command)
+
+    await prisma.videos.delete({where: {id}})
+
+    res.send(post)
 })
 
 app.listen(port, function () {

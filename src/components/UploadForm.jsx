@@ -30,7 +30,7 @@ function UploadForm() {
 
         await axios.post("http://localhost:3000/api/posts", formData, { headers: {'Content-Type': 'multipart/form-data'}})
 
-        navigate("/")
+        navigate("/conferences")
     }
 
     return (

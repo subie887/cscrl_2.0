@@ -1,6 +1,5 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
-import response from "../../temp_db/associates";
 import UploadForm from "../components/UploadForm";
 
 function SignUp() {

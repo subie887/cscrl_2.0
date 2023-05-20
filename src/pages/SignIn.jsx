@@ -1,6 +1,5 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
-import response from "../../temp_db/associates";
 
 function SignIn() {
     const [formData, setFormData] = React.useState({

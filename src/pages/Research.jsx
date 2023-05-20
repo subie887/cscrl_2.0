@@ -1,10 +1,9 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
 import avatar from "../assets/avatar-placeholder.jpg"
-import response from "../../temp_db/associates";
 
 function Research() {
-    const [associates, setAssociates] = React.useState(response.data.associates)
+    const [associates, setAssociates] = React.useState([])
     const associatesCards = associates.map(associate => (
         <PersonCard
             key={associate._id}

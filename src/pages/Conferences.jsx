@@ -4,6 +4,7 @@ import axios from "axios";
 import UploadForm from "../components/UploadForm";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
+
 console.log(server_addr)
 
 function Conferences() {

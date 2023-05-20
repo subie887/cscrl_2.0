@@ -1,11 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import dotenv from "dotenv";
 
-dotenv.config()
+const server_addr = import.meta.env.VITE_SERVER_ADDR
 
-server_addr = import.meta.env.SERVER_ADDRESS
 
 function UploadForm() {
     const [form, setForm] = React.useState({

@@ -1,6 +1,5 @@
 import React from "react";
-import PersonCard from "../components/PersonCard";
-import UploadForm from "../components/UploadForm";
+
 
 function SignUp() {
     const [formData, setFormData] = React.useState({

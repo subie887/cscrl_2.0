@@ -2,12 +2,9 @@ import React from "react";
 import VideoCard from "../components/VideoCard";
 import axios from "axios";
 import UploadForm from "../components/UploadForm";
-import dotenv from "dotenv";
 
-
-dotenv.config()
-
-server_addr = import.meta.env.SERVER_ADDRESS
+const server_addr = import.meta.env.VITE_SERVER_ADDR
+console.log(server_addr)
 
 function Conferences() {
     const [videos, setVideos] = React.useState([])

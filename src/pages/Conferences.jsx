@@ -2,6 +2,8 @@ import React from "react";
 import VideoCard from "../components/VideoCard";
 import axios from "axios";
 import UploadForm from "../components/UploadForm";
+import dotenv from "dotenv";
+
 
 dotenv.config()
 

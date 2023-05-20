@@ -3,12 +3,16 @@ import VideoCard from "../components/VideoCard";
 import axios from "axios";
 import UploadForm from "../components/UploadForm";
 
+dotenv.config()
+
+server_addr = process.env.SERVER_ADDRESS
+
 function Conferences() {
     const [videos, setVideos] = React.useState([])
 
     React.useEffect(() => {
         async function getVideos() {
-            const result = await axios.get("http://localhost:3000/api/posts")
+            const result = await axios.get(`${server_addr}api/posts`)
             setVideos(result.data)
         }
         getVideos()

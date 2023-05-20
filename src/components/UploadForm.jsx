@@ -2,6 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+dotenv.config()
+
+server_addr = process.env.SERVER_ADDRESS
+
 function UploadForm() {
     const [form, setForm] = React.useState({
         file: undefined,
@@ -28,7 +32,7 @@ function UploadForm() {
         formData.append("title", form.title)
         formData.append("desc", form.desc)
 
-        await axios.post("http://localhost:3000/api/posts", formData, { headers: {'Content-Type': 'multipart/form-data'}})
+        await axios.post(`${server_addr}api/posts`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
 
         navigate("/conferences")
     }

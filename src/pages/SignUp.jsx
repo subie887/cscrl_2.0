@@ -1,13 +1,14 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
 import response from "../../temp_db/associates";
-import backgroundImage from "../assets/auth-background.jpg"
+import UploadForm from "../components/UploadForm";
 
 function SignUp() {
     const [formData, setFormData] = React.useState({
         fname: "",
         lname:"",
         company: "",
+        role: "",
         email: "",
         password: "",
     })
@@ -15,7 +16,7 @@ function SignUp() {
     function handleChange(event){
         setFormData(prevForm => ({
             ...prevForm,
-            [event.target.name]:event.target.value
+            [event.target.name]: event.target.type == "file" ? event.target.files[0] : event.target.value
         }))
     }
 
@@ -52,6 +53,13 @@ function SignUp() {
                     />
                     <input className="auth-form--input" 
                         onChange={handleChange} 
+                        value={formData.role}
+                        name="role"
+                        placeholder="Role"
+                        type="text" 
+                    />
+                    <input className="auth-form--input" 
+                        onChange={handleChange} 
                         value={formData.email}
                         name="email"
                         placeholder="Email"
@@ -67,6 +75,9 @@ function SignUp() {
                     <button className="auth-form--button" onClick={handleSubmit}>Sign Up</button>
                 </form>
             </div>
+
+            <UploadForm />
+            
         </main>
     )
 }

@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config()
 
-server_addr = process.env.SERVER_ADDRESS
+server_addr = import.meta.env.SERVER_ADDRESS
 
 function Conferences() {
     const [videos, setVideos] = React.useState([])

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
-
 function UploadForm() {
     const [form, setForm] = React.useState({
         file: undefined,

@@ -2,39 +2,31 @@ import React from "react";
 import VideoCard from "../components/VideoCard";
 import axios from "axios";
 import UploadForm from "../components/UploadForm";
+import { Link } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
-console.log(server_addr)
-
 function Conferences() {
     const [videos, setVideos] = React.useState([])
+    const [conferences,  setConferences] =  React.useState([])
 
     React.useEffect(() => {
-        async function getVideos() {
-            const result = await axios.get(`${server_addr}api/posts`)
-            setVideos(result.data)
+        async function getEvents() {
+            const result = await axios.get(`${server_addr}api/events`)
+            setConferences(result.data)
         }
-        getVideos()
+        getEvents()
     }, [])
 
-    console.log(videos)
-    
-    
-    const videoCards = videos.map(video => (
-        <VideoCard 
-            key={video.id}
-            title={video.title}
-            eventName={video.eventName}
-            description={video.desc}
-        />
-    ))
+    const conferenceList = conferences.map(conf => (<Link to={`/conferences/${conf?.replaceAll(" ", "-").toLowerCase()}`} key={conf} className="conference-link">{conf}</Link>))
 
     return (
         <main>
             <h1>Conferences page</h1>
-            <UploadForm />
-            {videoCards}
+            <div className="conferernce-list--container">
+                <UploadForm />
+                {conferenceList}
+            </div>
 
         </main>
     )

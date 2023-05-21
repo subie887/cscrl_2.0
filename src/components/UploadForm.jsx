@@ -26,11 +26,11 @@ function UploadForm() {
 
         const formData = new FormData()
         formData.append("file", form.file)
-        formData.append("eventName", form.eventName)
+        formData.append("eventName", form.eventName.replaceAll(" ", "-").toLowerCase())
         formData.append("title", form.title)
         formData.append("desc", form.desc)
 
-        await axios.post(`${server_addr}api/posts`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
+        await axios.post(`${server_addr}api/videos`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
 
         navigate("/")
     }

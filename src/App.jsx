@@ -10,6 +10,7 @@ import Contacts from './pages/Contancts'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Layout from './components/Layout'
+import SingleConference from './pages/SingleConference'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path='/' element={<Home />} />
           <Route path='/conferences' element={<Conferences />} />
+          <Route path='/conferences/:confname' element={<SingleConference />} />
           <Route path='/research' element={<Research />} />
           <Route path='/calendar' element={<Calendar />} />
           <Route path='/contacts' element={<Contacts />} />

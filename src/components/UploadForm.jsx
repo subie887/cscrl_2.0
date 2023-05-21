@@ -38,9 +38,9 @@ function UploadForm() {
     return (
         <form onSubmit={submit} method="POST" encType="multipart/form-data">
             <input onChange={handleChange} type="file" name="file" accept="video/*"/>
-            <input onChange={handleChange} type="text" name="eventName" value={form.eventName}/>
-            <input onChange={handleChange} type="text" name="title" value={form.title}/>
-            <input onChange={handleChange} type="text" name="desc" value={form.desc}/>
+            <input onChange={handleChange} type="text" name="eventName" value={form.eventName} placeholder="Event name" />
+            <input onChange={handleChange} type="text" name="title" value={form.title} placeholder="Video title" />
+            <input onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Video Description" />
             <button type="submit">Submit</button>
         </form>
     )

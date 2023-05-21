@@ -207,6 +207,20 @@ header {
   background-color: lightgray;
 }
 
+.video-card--delete {
+  background-color: rgb(222, 64, 64);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+.video-card--delete:hover {
+  background-color: rgb(159, 56, 56);
+  cursor: pointer;
+}
+
 .auth-form--signup{
   display: grid;
   grid-template: 40px 40px 40px 40px / 1fr 1fr;

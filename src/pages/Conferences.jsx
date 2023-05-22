@@ -25,7 +25,7 @@ function Conferences() {
             <h1>Conferences page</h1>
             <div className="conferernce-list--container">
                 <UploadForm />
-                {conferenceList}
+                {conferenceList || <p>Loading...</p>}
             </div>
 
         </main>

@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Layout from './components/Layout'
 import SingleConference from './pages/SingleConference'
+import ContentUpload from './pages/ContentUpload'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/research' element={<Research />} />
           <Route path='/calendar' element={<Calendar />} />
           <Route path='/contacts' element={<Contacts />} />
+          <Route path='/upload/:type' element={<ContentUpload />} />
         </Route>
       </Routes>
     </BrowserRouter>

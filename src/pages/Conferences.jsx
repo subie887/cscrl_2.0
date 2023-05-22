@@ -1,14 +1,13 @@
 import React from "react";
-import VideoCard from "../components/VideoCard";
 import axios from "axios";
-import UploadForm from "../components/UploadForm";
-import { Link } from "react-router-dom";
+import VideoUploadForm from "../components/VideoUploadForm";
+import { Link, useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Conferences() {
     const [conferences,  setConferences] =  React.useState([])
-
+    let navigate = useNavigate()
     React.useEffect(() => {
         async function getEvents() {
             const result = await axios.get(`${server_addr}api/events`)
@@ -23,7 +22,7 @@ function Conferences() {
         <main>
             <h1>Conferences page</h1>
             <div className="conferernce-list--container">
-                <UploadForm />
+                <VideoUploadForm />
                 {conferenceList}
             </div>
         </main>

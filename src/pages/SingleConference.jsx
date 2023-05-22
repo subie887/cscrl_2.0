@@ -8,6 +8,7 @@ const server_addr = import.meta.env.VITE_SERVER_ADDR
 function SingleConference(){
     const params = useParams()
     const [videos, setVideos] = React.useState([])
+    let navigate = useNavigate()
 
     React.useEffect(() => {
         async function getVideos(){
@@ -17,7 +18,6 @@ function SingleConference(){
         getVideos()
     }, [])
 
-    const navigate = useNavigate()
 
     async function deleteVideo(id) {
         const result = await axios.delete(`${server_addr}api/videos/${id}`)

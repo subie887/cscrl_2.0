@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Conferences() {
-    const [videos, setVideos] = React.useState([])
     const [conferences,  setConferences] =  React.useState([])
 
     React.useEffect(() => {
@@ -25,9 +24,8 @@ function Conferences() {
             <h1>Conferences page</h1>
             <div className="conferernce-list--container">
                 <UploadForm />
-                {videos == [] ? <h1>Loading...</h1> : conferenceList}
+                {conferenceList}
             </div>
-
         </main>
     )
 }

@@ -25,7 +25,7 @@ function Conferences() {
             <h1>Conferences page</h1>
             <div className="conferernce-list--container">
                 <UploadForm />
-                {conferenceList || <p>Loading...</p>}
+                {videos == [] ? <h1>Loading...</h1> : conferenceList}
             </div>
 
         </main>

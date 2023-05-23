@@ -7,7 +7,7 @@ function InfoCard(props) {
         <article className="info-card--container" style={{backgroundImage: `url(${props.img})`}}>
             <div className="info-card--content">
                 <h2 className="info-card--title">{props.title}</h2>
-                <Link to={props.link} className="info-card--link">{props.btnText}</Link>
+                <Link to={props.link} className="info-card--link regular-button">{props.btnText}</Link>
             </div>
         </article>
     )

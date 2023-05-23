@@ -30,6 +30,7 @@ function Header() {
                         <Link to='/'>Podcasts</Link>
                     </li>
                 </ul>
+                <button className="regular-button">Sign out</button>
             </nav>
         </header>
     )

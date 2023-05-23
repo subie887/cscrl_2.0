@@ -183,7 +183,7 @@ header {
 .person-card--links {
   list-style-type: none;
   padding: 0;
-  height: 50%;
+  height: 35%;
   overflow: scroll;
 }
 

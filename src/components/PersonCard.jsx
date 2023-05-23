@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import avatar from "../assets/avatar-placeholder.jpg"
+import avatar from "../assets/avatar-placeholder.jpg";
+import ResearchUploadForm from "./ResearchUploadForm";
 
 function PersonCard(props) {
     //props: {img, fName, lName, role, bio, docs[{title, link}]}
@@ -21,6 +22,8 @@ function PersonCard(props) {
                 <ul className="person-card--links">
                     {docsList}
                 </ul>
+                <ResearchUploadForm _id={props._id} />
+                
             </div>
 
             <div className="controls">

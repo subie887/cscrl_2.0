@@ -15,6 +15,12 @@ function Header() {
                         <Link to='/'>Home</Link>
                     </li>
                     <li className="nav--item">
+                        <Link to='/conferences'>Conferences</Link>
+                    </li>
+                    <li className="nav--item">
+                        <Link to='/research'>Research</Link>
+                    </li>
+                    <li className="nav--item">
                         <Link to='/calendar'>Calendar</Link>
                     </li>
                     <li className="nav--item">

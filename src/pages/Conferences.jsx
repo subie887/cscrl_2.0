@@ -22,7 +22,6 @@ function Conferences() {
         <main>
             <h1>Conferences page</h1>
             <div className="conferernce-list--container">
-                <VideoUploadForm />
                 {conferenceList}
             </div>
         </main>

@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -21,7 +20,6 @@ function VideoUploadForm() {
         getEvents()
     }, [])
     
-    let navigate = useNavigate()
 
     function handleChange(event) {
         setForm(prevFormData => ({
@@ -50,7 +48,6 @@ function VideoUploadForm() {
 
         await axios.post(`${server_addr}api/videos`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
         
-        navigate("/conferences")
     }
 
     return (

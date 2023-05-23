@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "../components/VideoCard";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
@@ -22,7 +22,6 @@ function SingleConference(){
     async function deleteVideo(id) {
         const result = await axios.delete(`${server_addr}api/videos/${id}`)
         console.log(result)
-        navigate("/conferences")
     }
 
     const videoCards = videos.map(video => (

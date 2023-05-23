@@ -1,13 +1,11 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Research() {
     const [associates, setAssociates] = React.useState([])
-    let navigate = useNavigate()
 
     React.useEffect(() => {
         async function getAssociates() {
@@ -21,7 +19,6 @@ function Research() {
     async function deleteAssociate(id){
         console.log(`Deleting ${id}`)
         const result = await axios.delete(`${server_addr}api/associates/${id}`)
-        navigate("/research")
     }
     
     //props: {img, firstName, lName, role, bio, docs[{title, link}]}

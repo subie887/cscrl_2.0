@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -13,7 +12,6 @@ function PersonUploadForm() {
         bio: "",
     })
 
-    const navigate = useNavigate()
 
     function handleChange(event) {
         setForm(prevFormData => ({
@@ -33,9 +31,7 @@ function PersonUploadForm() {
         formData.append("bio", form.bio)
 
         await axios.post(`${server_addr}api/associates`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
-        .then(
-            navigate("/research")
-        )
+
 
     }
 

@@ -2,7 +2,7 @@ import React from "react";
 
 function Calendar() {
     return (
-        <h1>This is a Calendar page</h1>
+        <h1>Events Calendar</h1>
     )
 }
 

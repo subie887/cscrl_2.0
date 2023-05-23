@@ -12,9 +12,11 @@ function VideoCard(props) {
                 <video className="video-card--player" controls>
                     <source src={props.source} />
                 </video>
-                <h2 className="video-card--title">{props.title}</h2>
-                <h3 className="video-card--conference">{props.eventName}</h3>
-                <p className="video-card--description">{props.description}</p>
+                <div className="video-card--text">
+                    <h2 className="video-card--title">{props.title}</h2>
+                    <h3 className="video-card--conference">{props.eventName.replaceAll("-", " ")}</h3>
+                    <p className="video-card--description">{props.description}</p>
+                </div>
                 <button onClick={() => props.handleDelete(props._id)} className="delete-btn" type="delete">Delete</button>
             </div>
         </article>

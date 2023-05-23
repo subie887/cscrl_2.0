@@ -39,7 +39,7 @@ function SingleConference(){
 
     return (
         <main>
-            <h1>{params.confname}</h1>
+            <h1>{params.confname.replaceAll("-", " ")}</h1>
             {videoCards}
         </main>
     )

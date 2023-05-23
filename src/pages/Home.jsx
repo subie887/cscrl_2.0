@@ -31,7 +31,7 @@ function Home() {
 
     return (
         <main>
-            <h2>Home Page</h2>
+            <h1>Home</h1>
             <section className="card-row">
                 {infoCardElements}
             </section>

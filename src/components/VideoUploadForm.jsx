@@ -5,12 +5,21 @@ import { useNavigate } from "react-router-dom";
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function VideoUploadForm() {
+    const [events,  setEvents] =  React.useState([])
     const [form, setForm] = React.useState({
         file: undefined,
         eventName: "",
         title: "",
         desc: "",
     })
+
+    React.useEffect(() => {
+        async function getEvents() {
+            const result = await axios.get(`${server_addr}api/events`)
+            setEvents(result.data)
+        }
+        getEvents()
+    }, [])
     
     let navigate = useNavigate()
 
@@ -20,6 +29,15 @@ function VideoUploadForm() {
             [event.target.name]: event.target.name == "file" ? event.target.files[0] : event.target.value
         }))
     }
+
+    console.log(events)
+
+    const eventList = events.map(event => {
+        const eventName = event?.replaceAll("-", " ")
+        return(
+            <option key={eventName} value={eventName}>{eventName}</option>
+        )
+    })
 
     const submit = async event => {
         event.preventDefault()
@@ -36,13 +54,27 @@ function VideoUploadForm() {
     }
 
     return (
-        <form onSubmit={submit} method="POST" encType="multipart/form-data">
-            <input onChange={handleChange} type="file" name="file" accept="video/*"/>
-            <input onChange={handleChange} type="text" name="eventName" value={form.eventName} placeholder="Event name" />
-            <input onChange={handleChange} type="text" name="title" value={form.title} placeholder="Video title" />
-            <input onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Video Description" />
-            <button type="submit">Submit</button>
-        </form>
+        <div className="upload-form--container">
+            <form className="upload-form video-upload" onSubmit={submit} method="POST" encType="multipart/form-data">
+                <input 
+                    autoComplete="off"
+                    onChange={handleChange}
+                    type="text"
+                    name="eventName"
+                    list="eventList"
+                    value={form.eventName}
+                    placeholder="Event name"
+                    required="true"    
+                />
+                <datalist id="eventList">
+                    {eventList}
+                </datalist>
+                <input required="true" onChange={handleChange} type="text" name="title" value={form.title} placeholder="Video title" />
+                <textarea required="true" onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Video Description" />
+                <input required="true" onChange={handleChange} type="file" name="file" id="videoUpload" accept="video/*"/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     )
 }
 

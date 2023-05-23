@@ -35,8 +35,8 @@ function ResearchUploadForm(props) {
 
     return (
         <form onSubmit={submit} method="POST" encType="multipart/form-data">
-            <input onChange={handleChange} type="file" name="pdf" accept="application/pdf"/>
             <input onChange={handleChange} type="text" name="title" value={form.title} placeholder="Document title" />
+            <input onChange={handleChange} type="file" name="pdf" accept="application/pdf"/>
             
             <button type="submit">Submit</button>
         </form>

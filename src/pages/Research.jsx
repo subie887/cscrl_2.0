@@ -42,7 +42,7 @@ function Research() {
 
     return (
         <main>
-            <h1>This is a Research page</h1>
+            <h1>Research</h1>
             {associatesList}
         </main>
     )

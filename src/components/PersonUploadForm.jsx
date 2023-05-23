@@ -40,12 +40,14 @@ function PersonUploadForm() {
     }
 
     return (
-        <form onSubmit={submit} method="POST" encType="multipart/form-data">
-            <input onChange={handleChange} type="file" name="img" accept="image/*"/>
+        <form className="upload-form person-upload" onSubmit={submit} method="POST" encType="multipart/form-data">
+            <label htmlFor="img">
+                Select profile image: <input onChange={handleChange} type="file" name="img" accept="image/*"/>
+            </label>
             <input onChange={handleChange} type="text" name="firstName" value={form.firstName} placeholder="First name" />
             <input onChange={handleChange} type="text" name="lastName" value={form.lastName} placeholder="Last name" />
             <input onChange={handleChange} type="text" name="role" value={form.title} placeholder="Role" />
-            <input onChange={handleChange} type="text" name="bio" value={form.desc} placeholder="Bio" />
+            <textarea onChange={handleChange} type="text" name="bio" value={form.desc} placeholder="Bio" />
             <button type="submit">Submit</button>
         </form>
     )

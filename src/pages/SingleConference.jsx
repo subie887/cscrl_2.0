@@ -8,7 +8,6 @@ const server_addr = import.meta.env.VITE_SERVER_ADDR
 function SingleConference(){
     const params = useParams()
     const [videos, setVideos] = React.useState([])
-    let navigate = useNavigate()
 
     React.useEffect(() => {
         async function getVideos(){

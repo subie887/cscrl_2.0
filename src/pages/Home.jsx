@@ -20,14 +20,22 @@ function Home() {
         },
         {
             img: placeholder,
-            title: "Risk Index",
-            btnText: "Check out",
+            title: "LRMI",
+            btnText: "Check",
             link: "/conferences"
         },
         
     ])
 
-    const infoCardElements = infoCards.map(card => <InfoCard key={card.title} img={card.img} title={card.title} btnText={card.btnText} link={card.link}/>)
+    const infoCardElements = infoCards.map(card => (
+        <InfoCard 
+            key={card.title}
+            img={card.img}
+            title={card.title}
+            btnText={card.btnText}
+            link={card.link}
+        />
+    ))
 
     return (
         <main>

@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "../components/VideoCard";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 
@@ -43,6 +43,7 @@ function SingleConference(){
     return (
         <main>
             <h1>{params.confname.replaceAll("-", " ")}</h1>
+            <Link to="/conferences" className="regular-button">{"< Back"}</Link>
             {isLoading && <Loader /> }
             {videoCards}
         </main>

@@ -21,7 +21,6 @@ function Research() {
 
 
     async function deleteAssociate(id){
-        console.log(`Deleting ${id}`)
         const result = await axios.delete(`${server_addr}api/associates/${id}`)
     }
     

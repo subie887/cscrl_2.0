@@ -4,7 +4,6 @@ import axios from "axios";
 
 function VideoCard(props) {
     //props: {source, title, event, description}
-    console.log(props)
 
     return (
         <article className="video-card--container" >

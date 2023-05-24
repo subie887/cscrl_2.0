@@ -30,7 +30,6 @@ function VideoUploadForm() {
         }))
     }
 
-    console.log(events)
 
     const eventList = events.map(event => {
         const eventName = event?.replaceAll("-", " ")

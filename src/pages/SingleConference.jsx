@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "../components/VideoCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 
@@ -21,10 +21,11 @@ function SingleConference(){
         getVideos()
     }, [])
 
+    let navigate = useNavigate()
+
 
     async function deleteVideo(id) {
         const result = await axios.delete(`${server_addr}api/videos/${id}`)
-        console.log(result)
     }
 
     const videoCards = videos.map(video => (

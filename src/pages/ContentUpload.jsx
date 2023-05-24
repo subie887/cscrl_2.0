@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import VideoUploadForm from "../components/VideoUploadForm";
 import PersonUploadForm from "../components/PersonUploadForm";
+import CalenderUploadForm from "../components/CalendarUpload";
 
 function ContentUpload() {
     const params = useParams()
@@ -16,6 +17,7 @@ function ContentUpload() {
                 {
                         params.type === "conferences" ? <VideoUploadForm />
                     :   params.type === "research" ? <PersonUploadForm />
+                    :   params.type === "calendar" ? <CalenderUploadForm />
                     :   <p>ERROR 404 Not Found</p>
 
                 }

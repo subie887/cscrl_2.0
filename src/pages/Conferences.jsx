@@ -24,8 +24,10 @@ function Conferences() {
     return (
         <main>
             <h1>Conferences</h1>
-
-            {conferenceList}
+            <div className="conference-list--container">
+                <Link to="/upload/conferences" className="regular-button">Upload</Link>
+                {conferenceList}
+            </div>
             
         </main>
     )

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -16,7 +17,8 @@ function ResearchUploadForm(props) {
             [event.target.name]: event.target.name == "pdf" ? event.target.files[0] : event.target.value
         }))
     }
-
+    
+    let navigate = useNavigate()
     const submit = async event => {
         event.preventDefault()
 
@@ -25,7 +27,7 @@ function ResearchUploadForm(props) {
         formData.append("title", form.title)
 
         await axios.post(`${server_addr}api/associates/${props._id}/docs`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
-
+        navigate("/research")
     }
 
     return (

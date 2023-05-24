@@ -12,9 +12,7 @@
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
-  justify-content: center;
-  align-content: center;
+  
   background-color: #f7f4f1;
 }
 
@@ -126,6 +124,7 @@ h1:after, h1:before {
   border-radius: 15px;
   color: #ffffff;
 }
+
 
 .conference-link {
   width: 90%;
@@ -296,31 +295,6 @@ h1:after, h1:before {
   grid-template: 40px 40px / 1fr 1fr;
 }
 
-.upload-form--container {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.upload-form {
-  display: grid;
-  gap: 15px;
-  width: 30%;
-}
-
-.upload-form > button, .upload-form > input, .upload-form > textarea {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-}
-
-.upload-form > button {
-  background-color: #FFD94A;
-  color: #000000;
-  border: none;
-  outline: none;
-}
-
 .auth-form--container {
   background-color: #4B2913;
   padding: 2rem 5rem;
@@ -359,3 +333,30 @@ h1:after, h1:before {
   color: #000000;
   width: 100%;
 }
+
+.upload-form--container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.upload-form {
+  display: grid;
+  gap: 15px;
+  width: 30%;
+  margin: 20px auto;
+}
+
+.upload-form > button, .upload-form > input, .upload-form > textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.upload-form > button {
+  background-color: #FFD94A;
+  color: #000000;
+  border: none;
+  outline: none;
+}
+

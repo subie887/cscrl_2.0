@@ -1,6 +1,7 @@
 import React from "react";
 import PersonCard from "../components/PersonCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -40,6 +41,7 @@ function Research() {
     return (
         <main>
             <h1>Research</h1>
+            <Link to="/upload/research" className="regular-button">Upload</Link>
             {associatesList}
         </main>
     )

@@ -2,16 +2,19 @@ import React from "react";
 import PersonCard from "../components/PersonCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ProgressBar } from "react-loader-spinner";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Research() {
     const [associates, setAssociates] = React.useState([])
-
+    const [isLoading, setLoading] = React.useState(false)
     React.useEffect(() => {
         async function getAssociates() {
+            setLoading(true)
             const result = await axios.get(`${server_addr}api/associates`)
             setAssociates(result.data)
+            setLoading(false)
         }
         getAssociates()
     }, [])
@@ -37,11 +40,23 @@ function Research() {
         />
     ))
     
+    const load = (
+        <ProgressBar
+        height="80"
+        width="100%"
+        ariaLabel="progress-bar-loading"
+        wrapperStyle={{}}
+        wrapperClass="progress-bar-wrapper"
+        borderColor = '#4B2913'
+        barColor = '#FFD94A'
+        />
+    )
 
     return (
         <main>
             <h1>Research</h1>
             <Link to="/upload/research" className="regular-button">Upload</Link>
+            {isLoading && load}
             {associatesList}
         </main>
     )

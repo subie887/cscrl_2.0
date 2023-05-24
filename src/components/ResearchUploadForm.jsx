@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -9,6 +10,7 @@ function ResearchUploadForm(props) {
         pdf: undefined,
         title: "",
     })
+    const [isLoading, setLoading] = React.useState(false)
 
 
     function handleChange(event) {
@@ -25,8 +27,9 @@ function ResearchUploadForm(props) {
         const formData = new FormData()
         formData.append("pdf", form.pdf)
         formData.append("title", form.title)
-
+        setLoading(true)
         await axios.post(`${server_addr}api/associates/${props._id}/docs`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
+        setLoading(false)
         navigate("/research")
     }
 
@@ -34,7 +37,7 @@ function ResearchUploadForm(props) {
         <form onSubmit={submit} method="POST" encType="multipart/form-data">
             <input onChange={handleChange} type="text" name="title" value={form.title} placeholder="Document title" />
             <input onChange={handleChange} type="file" name="pdf" accept="application/pdf"/>
-            
+            {isLoading && <Loader /> }
             <button type="submit">Submit</button>
         </form>
     )

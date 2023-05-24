@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Loader from "./Loader";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -11,7 +12,7 @@ function PersonUploadForm() {
         role: "",
         bio: "",
     })
-
+    const [isLoading, setLoading] = React.useState(false)
 
     function handleChange(event) {
         setForm(prevFormData => ({
@@ -30,8 +31,9 @@ function PersonUploadForm() {
         formData.append("role", form.role)
         formData.append("bio", form.bio)
 
+        setLoading(true)
         await axios.post(`${server_addr}api/associates`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
-
+        setLoading(false)
 
     }
 
@@ -44,7 +46,8 @@ function PersonUploadForm() {
             <input onChange={handleChange} type="text" name="lastName" value={form.lastName} placeholder="Last name" />
             <input onChange={handleChange} type="text" name="role" value={form.title} placeholder="Role" />
             <textarea onChange={handleChange} type="text" name="bio" value={form.desc} placeholder="Bio" />
-            <button type="submit">Submit</button>
+            {isLoading && <Loader />}
+            <button type="submit" className="regular-button" >Submit</button>
         </form>
     )
 }

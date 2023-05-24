@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Loader from "./Loader";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
@@ -11,6 +12,7 @@ function VideoUploadForm() {
         title: "",
         desc: "",
     })
+    const [isLoading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
         async function getEvents() {
@@ -45,9 +47,9 @@ function VideoUploadForm() {
         formData.append("eventName", form.eventName.replaceAll(" ", "-").toLowerCase())
         formData.append("title", form.title)
         formData.append("desc", form.desc)
-
+        setLoading(true)
         await axios.post(`${server_addr}api/videos`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
-        
+        setLoading(false)
     }
 
     return (
@@ -69,6 +71,7 @@ function VideoUploadForm() {
                 <input required="true" onChange={handleChange} type="text" name="title" value={form.title} placeholder="Video title" />
                 <textarea required="true" onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Video Description" />
                 <input required="true" onChange={handleChange} type="file" name="file" id="videoUpload" accept="video/*"/>
+                {isLoading && <Loader />}
                 <button type="submit">Submit</button>
             </form>
         </div>

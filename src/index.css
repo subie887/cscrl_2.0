@@ -223,7 +223,7 @@ h1:after, h1:before {
 }
 
 .person-card--bio {
-  overflow: scroll;
+  overflow: auto;
   height: 30%;
 }
 
@@ -231,7 +231,7 @@ h1:after, h1:before {
   list-style-type: none;
   padding: 0;
   height: 35%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .video-card--container {

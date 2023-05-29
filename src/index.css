@@ -389,3 +389,8 @@ tr {
 .calendar-table--title {
   min-width: max-content;
 }
+
+.contact-list--container {
+  max-width: 500px;
+  margin: 100px auto;
+}

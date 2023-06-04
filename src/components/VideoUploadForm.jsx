@@ -69,7 +69,7 @@ function VideoUploadForm() {
                 </datalist>
                 <input required="true" onChange={handleChange} type="text" name="title" value={form.title} placeholder="Video title" />
                 <textarea required="true" onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Video Description" />
-                <input required="true" onChange={handleChange} type="file" name="file" id="videoUpload" accept="video/*"/>
+                <input required="true" onChange={handleChange} type="file" name="file" id="videoUpload" accept="video/*,.pdf"/>
                 {isLoading && <Loader />}
                 <button type="submit">Submit</button>
             </form>

@@ -1,8 +1,6 @@
 import React from "react";
 import InfoCard from "../components/InfoCard";
 import placeholder from "../assets/test-image.jpg"
-import PersonCard from "../components/PersonCard";
-import avatar from "../assets/avatar-placeholder.jpg";
 
 function Home() {
     const [infoCards, setInfoCards] = React.useState([
@@ -22,7 +20,7 @@ function Home() {
             img: placeholder,
             title: "LRMI",
             btnText: "Check",
-            link: "/conferences"
+            link: "/lrmi"
         },
         
     ])

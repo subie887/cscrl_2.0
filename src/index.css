@@ -274,6 +274,15 @@ tr {
   background-color: lightgray;
 }
 
+.video-card--pdf {
+  width: 95%;
+  height: 840px;
+  margin: auto;
+  display: block;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
 .video-card--text {
   margin: 0 1.5rem;
 }

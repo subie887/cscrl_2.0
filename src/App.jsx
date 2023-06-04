@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
-import Header from './components/Header'
 import Conferences from './pages/Conferences'
 import Research from './pages/Research'
 import Calendar from './pages/Calendar'
@@ -12,6 +11,8 @@ import SignIn from './pages/SignIn'
 import Layout from './components/Layout'
 import SingleConference from './pages/SingleConference'
 import ContentUpload from './pages/ContentUpload'
+import Lrmi from './pages/Lrmi'
+import LrmiYear from './pages/LrmiYear'
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path='/calendar' element={<Calendar />} />
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/upload/:type' element={<ContentUpload />} />
+          <Route path='/lrmi' element={<Lrmi />} />
+          <Route path='/lrmi/:year' element={<LrmiYear />} />
         </Route>
       </Routes>
     </BrowserRouter>

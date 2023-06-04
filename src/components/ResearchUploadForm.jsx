@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR

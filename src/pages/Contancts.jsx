@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { ProgressBar } from "react-loader-spinner";
 import ContactCard from "../components/ContactCard";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR

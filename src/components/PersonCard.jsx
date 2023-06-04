@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import avatar from "../assets/avatar-placeholder.jpg";
 import ResearchUploadForm from "./ResearchUploadForm";
 
 function PersonCard(props) {

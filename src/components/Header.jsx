@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/cscrl-logo.svg";
-import profileimg from "../assets/profile-default.svg";
 
 function Header() {
     return(

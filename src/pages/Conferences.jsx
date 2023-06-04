@@ -1,9 +1,6 @@
 import React from "react";
 import axios from "axios";
-import VideoUploadForm from "../components/VideoUploadForm";
 import { Link } from "react-router-dom";
-import InfoCard from "../components/InfoCard";
-import { ProgressBar } from "react-loader-spinner";
 import Loader from "../components/Loader";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR

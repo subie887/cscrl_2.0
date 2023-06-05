@@ -23,9 +23,6 @@ function Header() {
                         <Link to='/calendar'>Calendar</Link>
                     </li>
                     <li className="nav--item">
-                        <Link to='/contacts'>Contacts</Link>
-                    </li>
-                    <li className="nav--item">
                         <Link to='/'>Podcasts</Link>
                     </li>
                     <li className="nav--item">
@@ -33,6 +30,9 @@ function Header() {
                     </li>
                     <li className="nav--item">
                         <Link to='/'>Newsletter</Link>
+                    </li>
+                    <li className="nav--item">
+                        <Link to='/contacts'>Contacts</Link>
                     </li>
                 </ul>
                 <button className="regular-button">Sign out</button>

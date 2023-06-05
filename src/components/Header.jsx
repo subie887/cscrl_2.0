@@ -28,6 +28,9 @@ function Header() {
                     <li className="nav--item">
                         <Link to='/'>Podcasts</Link>
                     </li>
+                    <li className="nav--item">
+                        <Link to='/lrmi'>LRMI</Link>
+                    </li>
                 </ul>
                 <button className="regular-button">Sign out</button>
             </nav>

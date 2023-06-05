@@ -31,6 +31,9 @@ function Header() {
                     <li className="nav--item">
                         <Link to='/lrmi'>LRMI</Link>
                     </li>
+                    <li className="nav--item">
+                        <Link to='/'>Newsletter</Link>
+                    </li>
                 </ul>
                 <button className="regular-button">Sign out</button>
             </nav>

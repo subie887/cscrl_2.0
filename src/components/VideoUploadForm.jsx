@@ -38,18 +38,38 @@ function VideoUploadForm() {
         )
     })
 
+    function clear(){
+        setForm({
+            ...form,
+            file: undefined,
+            title: "",
+            desc: "",
+        })
+        setLoading(false)
+    }
+
     const submit = async event => {
         event.preventDefault()
 
         const formData = new FormData()
+        const onUploadProgress = (progressEvent) => {
+            const { loaded, total } = progressEvent;
+            let percent = Math.floor((loaded * 100) / total);
+            if (percent <= 100) {
+              console.log(`${loaded} bytes of ${total} bytes. ${percent}%`);
+            }
+        };
+          
         formData.append("file", form.file)
         formData.append("eventName", form.eventName.replaceAll(" ", "-").toLowerCase())
         formData.append("title", form.title)
         formData.append("desc", form.desc)
         setLoading(true)
-        await axios.post(`${server_addr}api/videos`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
-        setLoading(false)
+        await axios.post(`${server_addr}api/videos`, formData, { headers: {'Content-Type': 'multipart/form-data'}, onUploadProgress})
+        clear()
     }
+
+    
 
     return (
         <div className="upload-form--container">

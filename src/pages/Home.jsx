@@ -1,8 +1,11 @@
 import React from "react";
 import InfoCard from "../components/InfoCard";
-import placeholder from "../assets/test-image.jpg"
+import placeholder from "../assets/test-image.jpg";
+import { useCookies } from 'react-cookie';
 
 function Home() {
+    const [cookies, setCookie, deleteCookie] = useCookies(['_auth_state'])
+    console.log(cookies)
     const [infoCards, setInfoCards] = React.useState([
         {
             img: placeholder,

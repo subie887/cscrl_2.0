@@ -25,6 +25,10 @@ header {
   width: 100%;
 }
 
+nav {
+  width: 100%;
+}
+
 textarea {
   height: 100px;
 }
@@ -58,6 +62,10 @@ th {
 
 tr {
   max-height: 5rem;
+}
+
+button:disabled {
+  background-color: gray;
 }
 
 .regular-button {
@@ -184,7 +192,7 @@ tr {
   height: 2px;
   width: calc(100% + var(--padding));
   background-color: #ffffff;
-  left: calc(var(--padding) * -1);
+  left: calc((var(--padding) - 1.2em) * -1);
   bottom: 0;
 }
 
@@ -351,11 +359,14 @@ tr {
 }
 
 .auth-form--button {
-  grid-column: 1 / -1;
   background-color: #FFD94A;
   border: none !important;
   color: #000000;
   width: 100%;
+}
+
+.wide-button {
+  grid-column: 1 / -1;
 }
 
 .upload-form--container {

@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/cscrl-logo.svg";
+import { useSignOut } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+    const signOut = useSignOut()
+    const naigate = useNavigate()
+    const logout = () => {
+        signOut()
+        naigate('/signin')
+    }
     return(
         <header className="header">
             <nav className="navbar">
@@ -35,7 +43,7 @@ function Header() {
                         <Link to='/contacts'>Contacts</Link>
                     </li>
                 </ul>
-                <button className="regular-button">Sign out</button>
+                <button className="regular-button" onClick={logout}>Sign out</button>
             </nav>
         </header>
     )

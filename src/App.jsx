@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { RequireAuth } from 'react-auth-kit'
 import './App.css'
 import Home from './pages/Home'
 import Conferences from './pages/Conferences'
@@ -23,7 +24,7 @@ function App() {
         <Route path='/signin' element={<SignIn />} />
         {/* Main Website */}
         <Route element={<Layout />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<RequireAuth loginPath='signin' ><Home /></RequireAuth>} />
           <Route path='/conferences' element={<Conferences />} />
           <Route path='/conferences/:confname' element={<SingleConference />} />
           <Route path='/research' element={<Research />} />

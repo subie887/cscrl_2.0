@@ -95,6 +95,7 @@ function SignIn() {
                 'Session' in responseData ?
                 <div className="auth-form--container">
                     <h2 className="auth-form--title">Register</h2>
+                    <p>All new users are required to set their own password</p>
                     <form className="auth-form signin" action="">
                         <input className="auth-form--input" 
                             onChange={handleChallengeChange} 

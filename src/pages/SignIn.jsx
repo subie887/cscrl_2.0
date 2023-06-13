@@ -96,6 +96,14 @@ function SignIn() {
                 <div className="auth-form--container">
                     <h2 className="auth-form--title">Register</h2>
                     <p>All new users are required to set their own password</p>
+                    <p>Password requirements</p>
+                    <ul>
+                        <li>8-characters minimum</li>
+                        <li>Contains at least 1 number</li>
+                        <li>Contains at least 1 lowercase letter</li>
+                        <li>Contains at least 1 uppercase letter</li>
+                        <li>Contains at least 1 special character</li>
+                    </ul>
                     <form className="auth-form signin" action="">
                         <input className="auth-form--input" 
                             onChange={handleChallengeChange} 

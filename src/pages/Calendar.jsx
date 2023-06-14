@@ -29,39 +29,32 @@ function Calendar() {
         hour12: true,
     };
     
-    const table = (
-        <section className="calendar-table--container">
-            
-            <table className="calendar-table">
-                <thead>    
-                    <tr>
-                        <th>Date/Time</th>
-                        <th>Event</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        events.map(event => (
-                            <tr key={event.id}>
-                                <td className="calendar-table--date">{new Intl.DateTimeFormat("en-US", options).format(new Date(event.date))}</td>
-                                <td className="calendar-table--title">{event.title}</td>
-                                <td className="calendar-table--desc">{event.desc}</td>
-                                {isAdmin && <td className="delete-btn" onClick={() => deleteEvent(event.id)}>Delete</td>}
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-            {isAdmin && <Link to="/upload/calendar" className="regular-button">Add Event</Link>}
-        </section>
-            
-    )
+    const eventsRows = events.map(event => (
+            <tr key={event.id}>
+                <td className="calendar-table--date">{new Intl.DateTimeFormat("en-US", options).format(new Date(event.date))}</td>
+                <td className="calendar-table--title">{event.title}</td>
+                {isAdmin && <td className="delete-btn" onClick={() => deleteEvent(event.id)}>Delete</td>}
+            </tr>
+        ))
 
     return (
         <main>
             <h1>Events Calendar</h1>
-            {table}
+            <section className="calendar-table--container">
+                
+                <table className="calendar-table">
+                    <thead>    
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {eventsRows}
+                    </tbody>
+                </table>
+                {isAdmin && <Link to="/upload/calendar" className="regular-button">Add Event</Link>}
+            </section>
         </main>
     )
 }

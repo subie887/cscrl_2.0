@@ -327,13 +327,19 @@ button:disabled {
   grid-template: 40px 40px / 1fr 1fr;
 }
 
+.auth-logo {
+  width: 70%;
+  margin: 0 15%;
+}
+
 .auth-form--container {
   background-color: #4B2913;
   padding: 2rem 5rem;
   width: fit-content;
   border-radius: 15px;
-  margin: 10rem auto;
+  margin: 7rem auto;
   box-sizing: border-box;
+  color: #ffffff;
 }
 
 .auth-form--title {

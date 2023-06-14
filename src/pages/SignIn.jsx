@@ -2,13 +2,15 @@ import React from "react";
 import axios from "axios";
 import { useSignIn } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
-
-
+import logo from "../assets/cscrl-logo.svg"
+import { UserContext } from "../App";
+import { useCookies } from "react-cookie";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
-
 function SignIn() {
+    const {user, setUser} = React.useContext(UserContext)
+    const [cookies, setCookies, deleteCookies] = useCookies()
     const [form, setForm] = React.useState({
         email: "",
         password: "",
@@ -46,7 +48,7 @@ function SignIn() {
                 session: responseData.Session
             }))
         }
-
+        
         if('AuthenticationResult' in responseData){
             const authResult = responseData.AuthenticationResult
             signIn({
@@ -91,77 +93,81 @@ function SignIn() {
     
     return (
         <main className="auth-main">
-            {
-                'Session' in responseData ?
-                <div className="auth-form--container">
-                    <h2 className="auth-form--title">Register</h2>
-                    <p>All new users are required to set their own password</p>
-                    <p>Password requirements</p>
-                    <ul>
-                        <li>8-characters minimum</li>
-                        <li>Contains at least 1 number</li>
-                        <li>Contains at least 1 lowercase letter</li>
-                        <li>Contains at least 1 uppercase letter</li>
-                        <li>Contains at least 1 special character</li>
-                    </ul>
-                    <form className="auth-form signin" action="">
-                        <input className="auth-form--input" 
-                            onChange={handleChallengeChange} 
-                            value={challengeForm.firstName}
-                            name="firstName"
-                            placeholder="First Name"
-                            type="text"
-                            autoComplete="off"
-                        />
-                        <input className="auth-form--input" 
-                            onChange={handleChallengeChange} 
-                            value={challengeForm.lastName}
-                            name="lastName"
-                            placeholder="Last Name"
-                            type="text" 
-                            autoComplete="off"
-                        />
-                        <input className="auth-form--input" 
-                            onChange={handleChallengeChange} 
-                            value={challengeForm.newPassword}
-                            name="newPassword"
-                            placeholder="New password"
-                            type="password" 
-                            autoComplete="off"
-                        />
-                        <input className="auth-form--input" 
-                            onChange={handleChallengeChange} 
-                            value={challengeForm.confirmNewPassword}
-                            name="confirmNewPassword"
-                            placeholder="Confirm password"
-                            type="password"
-                            autoComplete="off"
-                        />
-                        <button className="auth-form--button wide-button" onClick={respondToChallenge}>Confirm</button>
-                    </form>
-                </div>
-                :
-                <div className="auth-form--container">
-                    <h2 className="auth-form--title">sign in</h2>
-                    <form className="auth-form signin" action="">
-                        <input className="auth-form--input" 
-                            onChange={handleChange} 
-                            value={form.email}
-                            name="email"
-                            placeholder="Email"
-                            type="email" 
-                        />
-                        <input className="auth-form--input" 
-                            onChange={handleChange} 
-                            value={form.password}
-                            name="password"
-                            placeholder="Password"
-                            type="password" 
-                        />
-                        <button className="auth-form--button wide-button" onClick={submit}>Sign In</button>
-                    </form>
-                </div>
-            }
+            <div className="auth-form--container">
+                <img src={logo} className="auth-logo" alt="" />
+                {
+                    'Session' in responseData ?
+                    <>
+                        <h2 className="auth-form--title">Register</h2>
+                        <p>All new users are required to set their own password <br /> and provide additional info</p>
+                        <p>Password requirements</p>
+                        <ul>
+                            <li>8-characters minimum</li>
+                            <li>Contains at least 1 number</li>
+                            <li>Contains at least 1 lowercase letter</li>
+                            <li>Contains at least 1 uppercase letter</li>
+                            <li>Contains at least 1 special character</li>
+                            <li>Passwords match</li>
+                        </ul>
+                        <form className="auth-form signin" autoComplete="off" action="">
+                            <input className="auth-form--input" 
+                                onChange={handleChallengeChange} 
+                                value={challengeForm.firstName}
+                                name="firstName"
+                                placeholder="First Name"
+                                type="text"
+                                autoComplete="off"
+                            />
+                            <input className="auth-form--input" 
+                                onChange={handleChallengeChange} 
+                                value={challengeForm.lastName}
+                                name="lastName"
+                                placeholder="Last Name"
+                                type="text" 
+                                autoComplete="off"
+                            />
+                            <input className="auth-form--input" 
+                                onChange={handleChallengeChange} 
+                                value={challengeForm.newPassword}
+                                name="newPassword"
+                                placeholder="New password"
+                                type="password" 
+                                autoComplete="off"
+                            />
+                            <input className="auth-form--input" 
+                                onChange={handleChallengeChange} 
+                                value={challengeForm.confirmNewPassword}
+                                name="confirmNewPassword"
+                                placeholder="Confirm password"
+                                type="password"
+                                autoComplete="off"
+                            />
+                            <button className="auth-form--button wide-button" onClick={respondToChallenge}>Confirm</button>
+                        </form>
+                    </>
+                    :
+                    <>
+                        <h2 className="auth-form--title">sign in</h2>
+                        <form className="auth-form signin" action="">
+                            <input className="auth-form--input" 
+                                onChange={handleChange} 
+                                value={form.email}
+                                name="email"
+                                placeholder="Email"
+                                type="email" 
+                            />
+                            <input className="auth-form--input" 
+                                onChange={handleChange} 
+                                value={form.password}
+                                name="password"
+                                placeholder="Password"
+                                type="password" 
+                            />
+                            <button className="auth-form--button wide-button" onClick={submit}>Sign In</button>
+                        </form>
+                    </>
+                }
+            </div>    
         </main>
     )
 }

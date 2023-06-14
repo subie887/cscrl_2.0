@@ -4,6 +4,7 @@ import VideoUploadForm from "../components/VideoUploadForm";
 import PersonUploadForm from "../components/PersonUploadForm";
 import CalenderUploadForm from "../components/CalendarUpload";
 import LrmiUploadForm from "../components/LrmiUploadForm";
+import NewsletterUploadForm from "../components/NewsletterUploadForm";
 
 function ContentUpload() {
     const params = useParams()
@@ -20,6 +21,7 @@ function ContentUpload() {
                     :   params.type === "research" ? <PersonUploadForm />
                     :   params.type === "calendar" ? <CalenderUploadForm />
                     :   params.type === "lrmi" ? <LrmiUploadForm />
+                    :   params.type === "newsletter" ? <NewsletterUploadForm />
                     :   <p>ERROR 404 Not Found</p>
 
                 }

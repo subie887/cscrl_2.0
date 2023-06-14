@@ -1,29 +1,54 @@
 import React from "react";
 import InfoCard from "../components/InfoCard";
-import placeholder from "../assets/test-image.jpg";
+import conferencesImg from "../assets/conferencesImg.jpg";
+import researchImg from "../assets/researchImg.jpg";
+import calendarImg from "../assets/calendarImg.jpg";
 import { useCookies } from 'react-cookie';
+import { UserContext } from "../App";
 
 function Home() {
-    const [cookies, setCookie, deleteCookie] = useCookies(['_auth_state'])
-    console.log(cookies)
+    const [cookies] = useCookies(['_auth_state'])
+    const {user, setUser} = React.useContext(UserContext)
+    React.useEffect(() => {
+        setUser(cookies._auth_state)
+        //console.log(user)
+    })
     const [infoCards, setInfoCards] = React.useState([
         {
-            img: placeholder,
+            img: conferencesImg,
             title: "Conferences",
-            btnText: "Watch",
+            btnText: "Open",
             link: "/conferences"
         },
         {
-            img: placeholder,
+            img: researchImg,
             title: "Research",
-            btnText: "Learn more",
+            btnText: "Open",
             link: "/research"
         },
         {
-            img: placeholder,
+            img: calendarImg,
+            title: "Calendar",
+            btnText: "Open",
+            link: "/calendar"
+        },
+        {
+            img: conferencesImg,
+            title: "Podcasts",
+            btnText: "Open",
+            link: "/podcasts"
+        },
+        {
+            img: conferencesImg,
             title: "LRMI",
-            btnText: "Check",
+            btnText: "Open",
             link: "/lrmi"
+        },
+        {
+            img: conferencesImg,
+            title: "Newsletter",
+            btnText: "Open",
+            link: "/newsletter"
         },
         
     ])

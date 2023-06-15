@@ -10,7 +10,7 @@ const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function SignIn() {
     const {user, setUser} = React.useContext(UserContext)
-    const [cookies, setCookies, deleteCookies] = useCookies()
+    const [cookies, setCookies, deleteCookies] = useCookies(['_auth_state'])
     const [form, setForm] = React.useState({
         email: "",
         password: "",

@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
-import { UserContext } from "../App";
+import { useCookies } from "react-cookie";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Conferences() {
-    const {user, setUser} = React.useContext(UserContext)
+    const [cookies] = useCookies(['_auth_state'])
     const [conferences,  setConferences] =  React.useState([])
     const [isLoading, setLoading] = React.useState(false)
 
@@ -30,7 +30,7 @@ function Conferences() {
         <main>
             <h1>Conferences</h1>
             <div className="conference-list--container">
-                {user?.groups?.includes('admin') && <Link to="/upload/conferences" className="regular-button">Upload</Link>}
+                {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/conferences" className="regular-button">Upload</Link>}
                 {isLoading && <Loader /> }
                 {conferenceList}
             </div>

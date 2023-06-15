@@ -32,7 +32,6 @@ function CalenderUploadForm() {
         setLoading(true)
         await axios.post(`${server_addr}api/calendar`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
         setLoading(false)
-        navigate("/calendar")
     }
 
     return (

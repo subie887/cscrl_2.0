@@ -9,10 +9,15 @@ import { UserContext } from "../App";
 function Home() {
     const [cookies] = useCookies(['_auth_state'])
     const {user, setUser} = React.useContext(UserContext)
+
     React.useEffect(() => {
-        setUser(cookies._auth_state)
-        //console.log(user)
-    })
+        const updateUser = () => {
+            console.log(cookies._auth_state)
+            setUser(cookies._auth_state)
+        }
+        updateUser()
+      }, [cookies._auth_state])
+
     const [infoCards, setInfoCards] = React.useState([
         {
             img: conferencesImg,

@@ -29,7 +29,7 @@ function Contacts() {
     
     return (
         <main>
-            <h1>Contacts</h1>
+            <h1>Contact</h1>
             <div className="contact-list--container">
                 <h3>Know someone who would benefit by being involved with the Center for Supply Chain Research at Lehigh Business? Contact us today!</h3>
                 {contactList}

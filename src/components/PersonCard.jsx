@@ -1,8 +1,10 @@
 import React from "react";
 import ResearchUploadForm from "./ResearchUploadForm";
+import { useCookies } from "react-cookie";
 
 function PersonCard(props) {
     //props: {img, fName, lName, role, bio, docs[{title, link}]}
+    const [cookies] = useCookies(['_auth_state'])
     const docsList = props.docs.map(doc => <li key={doc.title}><a href={doc.link}>{doc.title}</a></li>)
     
     return (
@@ -20,12 +22,11 @@ function PersonCard(props) {
                 <ul className="person-card--links">
                     {docsList}
                 </ul>
-                <ResearchUploadForm _id={props._id} />
-                
+                {cookies?._auth_state.groups.includes('admin') && <ResearchUploadForm _id={props._id} />}
             </div>
 
             <div className="controls">
-                <button className="delete-btn" onClick={() => props.handleDelete(props._id)}>delete</button>
+                {cookies?._auth_state.groups.includes('admin') && <button className="delete-btn" onClick={() => props.handleDelete(props._id)}>delete</button>}
             </div>
 
         </article>

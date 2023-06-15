@@ -2,11 +2,14 @@ import React from "react";
 import PersonCard from "../components/PersonCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ProgressBar } from "react-loader-spinner";
+import Loader from "../components/Loader";
+import { useCookies } from "react-cookie";
+
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Research() {
+    const [cookies] = useCookies(['_auth_state'])
     const [associates, setAssociates] = React.useState([])
     const [isLoading, setLoading] = React.useState(false)
     React.useEffect(() => {
@@ -38,24 +41,12 @@ function Research() {
             handleDelete={deleteAssociate}
         />
     ))
-    
-    const load = (
-        <ProgressBar
-        height="80"
-        width="100%"
-        ariaLabel="progress-bar-loading"
-        wrapperStyle={{}}
-        wrapperClass="progress-bar-wrapper"
-        borderColor = '#4B2913'
-        barColor = '#FFD94A'
-        />
-    )
 
     return (
         <main>
             <h1>Research</h1>
-            <Link to="/upload/research" className="regular-button">Upload</Link>
-            {isLoading && load}
+            {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/research" className="regular-button">Upload</Link>}
+            {isLoading && <Loader />}
             {associatesList}
         </main>
     )

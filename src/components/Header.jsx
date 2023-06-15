@@ -31,16 +31,16 @@ function Header() {
                         <Link to='/calendar'>Calendar</Link>
                     </li>
                     <li className="nav--item">
-                        <Link to='/'>Podcasts</Link>
+                        <Link to='/' >Podcasts</Link>
                     </li>
                     <li className="nav--item">
                         <Link to='/lrmi'>LRMI</Link>
                     </li>
                     <li className="nav--item">
-                        <Link to='/'>Newsletter</Link>
+                        <Link to='/newsletter'>Newsletter</Link>
                     </li>
                     <li className="nav--item">
-                        <Link to='/contacts'>Contacts</Link>
+                        <Link to='/contacts'>Contact</Link>
                     </li>
                 </ul>
                 <button className="regular-button" onClick={logout}>Sign out</button>

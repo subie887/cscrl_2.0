@@ -1,9 +1,10 @@
 import React from "react";
+import { useCookies } from "react-cookie";
 
 
 function VideoCard(props) {
     //props: {source, title, event, description}
-
+    const [cookies] = useCookies(['_auth_state'])
     return (
         <article className="video-card--container" >
             <div className="video-card">
@@ -19,7 +20,7 @@ function VideoCard(props) {
                     <h3 className="video-card--conference">{props.eventName.replaceAll("-", " ")}</h3>
                     <p className="video-card--description">{props.description}</p>
                 </div>
-                <button onClick={() => props.handleDelete(props._id)} className="delete-btn" type="delete">Delete</button>
+                {cookies?._auth_state.groups.includes('admin') && <button onClick={() => props.handleDelete(props._id)} className="delete-btn" type="delete">Delete</button>}
             </div>
         </article>
     )

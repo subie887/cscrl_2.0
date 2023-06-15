@@ -25,8 +25,11 @@ function App() {
   const [cookies, setCookie, deleteCookie] = useCookies(['_auth_state'])
 
   React.useEffect(() => {
-    setUser(cookies._auth_state)
-  })
+    const updateUser = () => {
+      setUser(cookies._auth_state)
+    }
+    updateUser()
+  }, [cookies._auth_state])
 
   return (
     <UserContext.Provider value={{user, setUser}}>

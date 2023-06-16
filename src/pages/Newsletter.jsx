@@ -2,10 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import { useCookies } from "react-cookie";
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function Newsletter() {
+    const [cookies] = useCookies(['_auth_state'])
     const [newsletterYears, setNewsletterYears] =  React.useState([])
     const [isLoading, setLoading] = React.useState(false)
 
@@ -28,7 +30,7 @@ function Newsletter() {
         <main>
             <h1>Newsletter</h1>
             <div className="conference-list--container">
-                <Link to="/upload/newsletter" className="regular-button">Upload</Link>
+                {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/newsletter" className="regular-button">Upload</Link>}
                 {isLoading && <Loader /> }
                 {yearList}
             </div>

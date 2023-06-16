@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 function PersonCard(props) {
     //props: {img, fName, lName, role, bio, docs[{title, link}]}
     const [cookies] = useCookies(['_auth_state'])
-    const docsList = props.docs.map(doc => <li key={doc.title}><a href={doc.link}>{doc.title}</a></li>)
+    const docsList = props.docs.map(doc => <li key={doc.title}><a href={doc.link} target="_blank">{doc.title}</a></li>)
     
     return (
         <article className="person-card--container" >

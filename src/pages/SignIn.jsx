@@ -9,8 +9,6 @@ import { useCookies } from "react-cookie";
 const server_addr = import.meta.env.VITE_SERVER_ADDR
 
 function SignIn() {
-    const {user, setUser} = React.useContext(UserContext)
-    const [cookies, setCookies, deleteCookies] = useCookies(['_auth_state'])
     const [form, setForm] = React.useState({
         email: "",
         password: "",
@@ -74,6 +72,10 @@ function SignIn() {
         try {
             const response = await axios.post(`${server_addr}auth/signin`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
             setResponseData(response.data)
+            response.data.name && setResponseData(prevResponseData => ({
+                ...prevResponseData,
+                errorMessage: "Incorrect username or password. Please try again."
+            }))
         } catch (error) {
             console.log(error)
         }
@@ -165,6 +167,7 @@ function SignIn() {
                             />
                             <button className="auth-form--button wide-button" onClick={submit}>Sign In</button>
                         </form>
+                        {responseData.errorMessage && <p style={{color: "red"}}>{responseData.errorMessage}</p>}
                     </>
                 }
             </div>    

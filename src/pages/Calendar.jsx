@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import Loader from "../components/Loader";
 
 
 const server_addr = import.meta.env.VITE_SERVER_ADDR
@@ -10,11 +11,14 @@ const server_addr = import.meta.env.VITE_SERVER_ADDR
 function Calendar() {
     const [cookies] = useCookies(['_auth_state'])
     const [events, setEvents] = React.useState([])
+    const [isLoading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
         async function getEvents(){
+            setLoading(true)
             const result = await axios.get(`${server_addr}api/calendar`)
             setEvents(result.data)
+            setLoading(false)
         }
         getEvents()
     }, [])
@@ -57,6 +61,7 @@ function Calendar() {
                         {eventsRows}
                     </tbody>
                 </table>
+                {isLoading && <Loader />}
                 {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/calendar" className="regular-button">Add Event</Link>}
             </section>
         </main>

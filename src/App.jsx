@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link, HashRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { RequireAuth } from 'react-auth-kit'
 import './App.css'
 import Home from './pages/Home'
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<SignIn />} />
@@ -51,7 +51,7 @@ function App() {
               <Route path='/newsletter/:year' element={<NewsletterYear />} />
             </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </UserContext.Provider>
   )
 }

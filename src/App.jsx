@@ -1,12 +1,12 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, HashRouter } from 'react-router-dom'
 import { RequireAuth } from 'react-auth-kit'
 import './App.css'
 import Home from './pages/Home'
 import Conferences from './pages/Conferences'
 import Research from './pages/Research'
 import Calendar from './pages/Calendar'
-import Contacts from './pages/Contacts'
+import Contacts from './pages/Contancts'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Layout from './components/Layout'
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<SignIn />} />
@@ -51,7 +51,7 @@ function App() {
               <Route path='/newsletter/:year' element={<NewsletterYear />} />
             </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </UserContext.Provider>
   )
 }

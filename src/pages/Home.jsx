@@ -3,6 +3,7 @@ import InfoCard from "../components/InfoCard";
 import conferencesImg from "../assets/conferencesImg.jpg";
 import researchImg from "../assets/researchImg.jpg";
 import calendarImg from "../assets/calendarImg.jpg";
+import riskindexImg from "../assets/riskindexImg.jpg"
 import { useCookies } from 'react-cookie';
 import { UserContext } from "../App";
 
@@ -44,7 +45,7 @@ function Home() {
             link: "/podcasts"
         },
         {
-            img: conferencesImg,
+            img: riskindexImg,
             title: "LRMI",
             btnText: "Open",
             link: "/lrmi"

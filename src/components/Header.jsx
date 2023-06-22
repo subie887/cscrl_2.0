@@ -31,7 +31,7 @@ function Header() {
                         <Link to='/calendar'>Calendar</Link>
                     </li>
                     <li className="nav--item">
-                        <Link to='/' >Podcasts</Link>
+                        <Link to='/podcasts' >Podcasts</Link>
                     </li>
                     <li className="nav--item">
                         <Link to='/lrmi'>LRMI</Link>

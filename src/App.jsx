@@ -17,6 +17,8 @@ import LrmiYear from './pages/LrmiYear'
 import Newsletter from './pages/Newsletter'
 import NewsletterYear from './pages/NewsletterYear'
 import { useCookies } from 'react-cookie'
+import Podcasts from './pages/Podcasts'
+import PodcastYear from './pages/PodcastYear'
 
 export const UserContext = React.createContext({});
 
@@ -39,16 +41,18 @@ function App() {
             <Route path='/signin' element={<SignIn />} />
             <Route element={<Layout />}>
               <Route path='/' element={<RequireAuth loginPath='signin' ><Home /></RequireAuth>} />
+              <Route path='/upload/:type' element={<ContentUpload />} />
               <Route path='/conferences' element={<Conferences />} />
               <Route path='/conferences/:confname' element={<SingleConference />} />
               <Route path='/research' element={<Research />} />
               <Route path='/calendar' element={<Calendar />} />
               <Route path='/contacts' element={<Contacts />} />
-              <Route path='/upload/:type' element={<ContentUpload />} />
               <Route path='/lrmi' element={<Lrmi />} />
               <Route path='/lrmi/:year' element={<LrmiYear />} />
               <Route path='/newsletter/' element={<Newsletter />} />
               <Route path='/newsletter/:year' element={<NewsletterYear />} />
+              <Route path='/podcasts/' element={<Podcasts />} />
+              <Route path='/podcasts/:year' element={<PodcastYear />} />
             </Route>
         </Routes>
       </BrowserRouter>

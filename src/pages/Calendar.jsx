@@ -41,6 +41,7 @@ function Calendar() {
             <tr key={event.id}>
                 <td className="calendar-table--date">{new Intl.DateTimeFormat("en-US", options).format(new Date(event.date))}</td>
                 <td className="calendar-table--title">{event.title}</td>
+                <td className="calendar-table--location">{event.desc}</td>
                 {cookies?._auth_state.groups.includes('admin') && <td className="delete-btn" onClick={() => deleteEvent(event.id)}>Delete</td>}
             </tr>
         ))
@@ -55,6 +56,7 @@ function Calendar() {
                         <tr>
                             <th>Date/Time</th>
                             <th>Event</th>
+                            <th>Location</th>
                         </tr>
                     </thead>
                     <tbody>

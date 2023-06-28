@@ -29,6 +29,7 @@ function Newsletter() {
     return (
         <main>
             <h1>Newsletter</h1>
+            <h3 className="sub-title">Not subscribed to our newsletter? <a href="https://lp.constantcontactpages.com/su/PCwdnpK/cscrl" target="_none">Sign up now!</a></h3>
             <div className="conference-list--container">
                 {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/newsletter" className="regular-button">Upload</Link>}
                 {isLoading && <Loader /> }

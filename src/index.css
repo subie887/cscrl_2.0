@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;600&display=swap');
-
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Merriweather', serif;
   line-height: 1.5;
   font-weight: 400;
   display: block;
 
 
-  --lehigh-yellow: #FFD94A;
+  --lehigh-yellow: #FFD940;
   --lehigh-brown: #4B2913;
 
   color-scheme: light dark;
@@ -29,10 +27,6 @@ header {
   width: 100%;
 }
 
-nav {
-  width: 100%;
-}
-
 textarea {
   height: 100px;
 }
@@ -49,7 +43,7 @@ h1:after, h1:before {
   content: '';
   width: 150px;
   height: 3px;
-  background: #4B2913;
+  background: var(--lehigh-brown);
   margin: 0 10px;
 }
 
@@ -60,7 +54,7 @@ th, td {
 }
 
 th {
-  background-color: #4B2913;
+  background-color: var(--lehigh-brown);
   color: #ffffff;
 }
 
@@ -72,9 +66,15 @@ button:disabled {
   background-color: gray;
 }
 
+.vl {
+  border-left: 1.5px solid white;
+  height: 100%;
+  margin: 0 10px;
+}
+
 .regular-button {
-  background-color: #FFD94A;
-  border: 2px solid #FFD94A;
+  background-color: var(--lehigh-yellow);
+  border: 2px solid var(--lehigh-yellow);
   padding: .5em 1.25em;
   border-radius: 10px;
   text-decoration: none;
@@ -85,20 +85,25 @@ button:disabled {
 
 .regular-button:hover {
   background-color: transparent;
-  border: 2px solid #FFD94A;
-  color: #FFD94A;
+  border: 2px solid var(--lehigh-yellow);
+  color: var(--lehigh-yellow);
   cursor: pointer;
 }
 
-.navbar {
+.header, .footer {
+  color: #ffffff;
   background-color: var(--lehigh-brown);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 64px;
   padding: 15px 30px;
   box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+  width: 95%;
+  height: fit-content;
+}
+
+.navbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -129,6 +134,13 @@ button:disabled {
   margin-left: 50px;
 }
 
+.sub-title {
+  text-align: center;
+}
+
+.sub-title > a {
+  color: var(--lehigh-brown);
+}
 .submit-form {
   display: grid;
 }
@@ -178,7 +190,7 @@ button:disabled {
   padding: .5em 1.5em 1.5em var(--padding);
   background: linear-gradient(
     hsl(0 0% 0% / 0),
-    hsl(24 60% 18% / 0.9) 20%
+    hsl(24 60% 18% / 0.9) 40%
   );
   border-radius: 0 0 15px 15px;
   text-align: right;
@@ -252,8 +264,7 @@ button:disabled {
 }
 
 .person-card--links {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: "\1F4D6";
   overflow: auto;
   height: 40%;
 }
@@ -338,7 +349,7 @@ button:disabled {
 }
 
 .auth-form--container {
-  background-color: #4B2913;
+  background-color: var(--lehigh-brown);
   padding: 2rem 5rem;
   width: fit-content;
   border-radius: 15px;
@@ -370,7 +381,7 @@ button:disabled {
 }
 
 .auth-form--button {
-  background-color: #FFD94A;
+  background-color: var(--lehigh-yellow);
   border: none !important;
   color: #000000;
   width: 100%;
@@ -400,7 +411,7 @@ button:disabled {
 }
 
 .upload-form > button {
-  background-color: #FFD94A;
+  background-color: var(--lehigh-yellow);
   color: #000000;
   border: none;
   outline: none;

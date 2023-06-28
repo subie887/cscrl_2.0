@@ -1,9 +1,11 @@
 import React from "react";
 import InfoCard from "../components/InfoCard";
-import conferencesImg from "../assets/conferencesImg.jpg";
-import researchImg from "../assets/researchImg.jpg";
-import calendarImg from "../assets/calendarImg.jpg";
-import riskindexImg from "../assets/riskindexImg.jpg"
+import conferencesImg from "../assets/conferences-background.jpg";
+import researchImg from "../assets/research-background.jpg";
+import calendarImg from "../assets/calendar-background.jpg";
+import newsletterImg from "../assets/newsletter-background.jpg"
+import podcastsImg from "../assets/podcasts-background.jpg"
+import riskindexImg from "../assets/riskindex-background.jpg"
 import { useCookies } from 'react-cookie';
 import { UserContext } from "../App";
 
@@ -39,7 +41,7 @@ function Home() {
             link: "/calendar"
         },
         {
-            img: conferencesImg,
+            img: podcastsImg,
             title: "Podcasts",
             btnText: "Open",
             link: "/podcasts"
@@ -51,7 +53,7 @@ function Home() {
             link: "/lrmi"
         },
         {
-            img: conferencesImg,
+            img: newsletterImg,
             title: "Newsletter",
             btnText: "Open",
             link: "/newsletter"
@@ -72,6 +74,7 @@ function Home() {
     return (
         <main>
             <h1>Home</h1>
+            <h3 className="sub-title">You're in member portal <br /><a href="https://business.lehigh.edu/centers/center-for-supply-chain-research-at-lehigh">Return to CSCRL public website</a></h3>
             <section className="card-row">
                 {infoCardElements}
             </section>

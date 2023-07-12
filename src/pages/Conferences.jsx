@@ -28,7 +28,7 @@ function Conferences() {
     
     return (
         <main>
-            <h1>Conferences</h1>
+            <h1>Past Conferences</h1>
             <div className="conference-list--container">
                 {cookies?._auth_state.groups.includes('admin') && <Link to="/upload/conferences" className="regular-button">Upload</Link>}
                 {isLoading && <Loader /> }

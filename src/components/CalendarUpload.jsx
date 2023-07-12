@@ -38,7 +38,7 @@ function CalenderUploadForm() {
         <div className="upload-form--container">
             <form className="upload-form calendar-upload" onSubmit={submit} method="POST" encType="multipart/form-data">
                 <input required={true} onChange={handleChange} type="text" name="title" value={form.title} placeholder="Event title" />
-                <textarea required={true} onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Event Description" />
+                <textarea required={true} onChange={handleChange} type="text" name="desc" value={form.desc} placeholder="Event Location" />
                 <input required={true} onChange={handleChange} type="datetime-local" name="date" value={form.date} />
                 {isLoading && <Loader />}
                 <button type="submit">Submit</button>
